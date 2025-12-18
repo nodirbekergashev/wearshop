@@ -1,0 +1,100 @@
+body { font-family: 'Inter', sans-serif; }
+
+.custom-navbar {
+    background-color: #fff;
+    border-bottom: 1px solid #e0e0e0;
+    padding: 10px 0;
+}
+
+.logo-text {
+    font-weight: 800;
+    font-size: 22px;
+    color: #000;
+    text-decoration: none;
+    letter-spacing: -1px;
+    white-space: nowrap;
+}
+
+/* Qidiruv paneli logic */
+.search-container {
+    display: flex;
+    border: 2px solid #000;
+    border-radius: 8px;
+    overflow: hidden;
+    flex-grow: 1; /* This makes it fill the middle on mobile */
+    min-width: 150px;
+}
+
+.search-input {
+    border: none;
+    padding: 8px 12px;
+    width: 100%;
+    outline: none;
+    font-size: 14px;
+}
+
+.btn-topish {
+    background-color: #000;
+    color: #fff;
+    border: none;
+    padding: 0 15px;
+    font-weight: 600;
+    cursor: pointer;
+    font-size: 14px;
+}
+
+.btn-katalog {
+    background-color: #000;
+    color: #fff !important;
+    border: none;
+    padding: 8px 20px;
+    border-radius: 6px;
+    font-weight: 600;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    text-decoration: none;
+    transition: background-color 0.2s;
+}
+
+.nav-link-custom {
+    color: #000 !important;
+    text-decoration: none;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    font-size: 12px;
+    gap: 2px;
+}
+
+.nav-link-custom i { font-size: 18px; }
+
+.btn-kirish {
+    background-color: #fff;
+    color: #000;
+    border: 2px solid #000;
+    padding: 6px 20px;
+    border-radius: 6px;
+    font-weight: 600;
+    text-decoration: none;
+    display: inline-block;
+    transition: all 0.2s;
+}
+
+.btn-kirish:hover {
+    background-color: #000;
+    color: #fff;
+}
+
+/* Mobile specific tweaks */
+@media (max-width: 991px) {
+    .logo-text { font-size: 18px; }
+    .btn-topish { padding: 0 10px; }
+    .search-input { padding: 6px 8px; }
+
+    /* Ensure the search bar container is visible on the same line */
+    .search-container {
+        margin-left: 10px;
+        margin-right: 10px;
+    }
+}

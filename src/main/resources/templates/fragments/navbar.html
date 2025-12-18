@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <title>Market Navbar</title>
+
+    <!-- Bootstrap 5 CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet"
+          integrity="sha384-9ndCyUaIbzAi2FUVXJi0CjmCapSmO7SnpJef0486qhLnuZ2cdeRhO02iuK6FUUVM" crossorigin="anonymous">
+
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+</head>
+<body>
+
+<!-- Responsive Navbar with Burger Menu on Mobile -->
+<nav class="navbar navbar-expand-lg bg-body-tertiary">
+    <div class="container-fluid px-lg-5">
+
+        <!-- Logo -->
+        <a th:href="@{/}" class="navbar-brand fw-bold fs-3">MARKET</a>
+
+        <!-- Katalog Button (visible on larger screens) -->
+        <a th:href="@{/categories}" class="btn btn-outline-secondary d-none d-lg-flex align-items-center gap-2 me-3">
+            <i class="fas fa-bars"></i>
+            <span>Katalog</span>
+        </a>
+
+        <!-- Burger Toggler for mobile -->
+        <button class="navbar-toggler" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasNavbar">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+
+        <!-- Offcanvas (sidebar menu on mobile) + collapsible content on desktop -->
+        <div class="offcanvas offcanvas-end" tabindex="-1" id="offcanvasNavbar" aria-labelledby="offcanvasNavbarLabel">
+            <div class="offcanvas-header">
+                <h5 class="offcanvas-title" id="offcanvasNavbarLabel">MENU</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+            </div>
+            <div class="offcanvas-body p-0">
+                <div class="navbar-nav w-100">
+
+                    <!-- Search Form - full width on mobile, centered on desktop -->
+                    <form th:action="@{/search}" method="get" class="d-flex w-100 my-3 my-lg-0 px-3 px-lg-0">
+                        <input type="text" name="q" class="form-control me-2" placeholder="Mahsulotlarni toping" aria-label="Search">
+                        <button class="btn btn-primary" type="submit">Topish</button>
+                    </form>
+
+                    <!-- Navigation links -->
+                    <div class="d-flex flex-column flex-lg-row align-items-lg-center gap-4 w-100 px-3 px-lg-0 mt-3 mt-lg-0">
+
+                        <!-- Katalog button inside menu on mobile -->
+                        <a th:href="@{/categories}" class="d-lg-none nav-link d-flex align-items-center gap-2">
+                            <i class="fas fa-bars"></i>
+                            <span>Katalog</span>
+                        </a>
+
+                        <a th:href="@{/orders}" class="nav-link d-flex flex-column flex-lg-row align-items-center gap-lg-2 text-center text-lg-start">
+                            <i class="fas fa-box fs-4"></i>
+                            <span>Buyurtmalar</span>
+                        </a>
+
+                        <a th:href="@{/wishlist}" class="nav-link d-flex flex-column flex-lg-row align-items-center gap-lg-2 text-center text-lg-start">
+                            <i class="far fa-heart fs-4"></i>
+                            <span>Sevimlilar</span>
+                        </a>
+
+                        <a th:href="@{/cart}" class="nav-link d-flex flex-column flex-lg-row align-items-center gap-lg-2 text-center text-lg-start">
+                            <i class="fas fa-shopping-cart fs-4"></i>
+                            <span>Savat</span>
+                        </a>
+
+                        <!-- Language Dropdown -->
+                        <div class="dropdown">
+                            <a class="nav-link dropdown-toggle d-flex flex-column flex-lg-row align-items-center gap-lg-2 text-center text-lg-start"
+                               href="#" role="button" data-bs-toggle="dropdown">
+                                <i class="fas fa-globe fs-4"></i>
+                                <span>O'zbekcha</span>
+                            </a>
+                            <ul class="dropdown-menu">
+                                <!-- Add your language options here -->
+                                <li><a class="dropdown-item" href="#">O'zbekcha</a></li>
+                                <li><a class="dropdown-item" href="#">Русский</a></li>
+                                <li><a class="dropdown-item" href="#">English</a></li>
+                            </ul>
+                        </div>
+
+                        <!-- Login Button -->
+                        <a th:href="@{/auth/login}" class="btn btn-success ms-lg-auto">Kirish</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</nav>
+
+<!-- Bootstrap JS Bundle (includes Popper) -->
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-geWF76RCwLtnZ8qwWowPQNguL3RmwHVBC9FhGdlKrxdiJJigb/j/68SIy3Te4Bkz" crossorigin="anonymous"></script>
+</body>
+</html>

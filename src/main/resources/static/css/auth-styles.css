@@ -1,0 +1,153 @@
+/* auth.css - Login va Register uchun umumiy uslublar */
+
+:root {
+    --black: #000000;
+    --white: #ffffff;
+    --gray: #f8f8f8;
+    --border: #000000;
+}
+
+body {
+    background-color: var(--white);
+    font-family: 'Inter', -apple-system, sans-serif;
+    color: var(--black);
+    display: flex;
+    align-items: center;
+    min-height: 100vh;
+    margin: 0;
+}
+
+.auth-card {
+    max-width: 480px;
+    margin: auto;
+    padding: 40px;
+    border: 1px solid var(--border);
+    border-radius: 0; /* O'tkir burchaklar */
+}
+
+.brand-logo {
+    font-size: 22px;
+    font-weight: 900;
+    letter-spacing: 4px;
+    text-decoration: none;
+    color: var(--black);
+    display: block;
+    margin-bottom: 30px;
+    text-align: center;
+    text-transform: uppercase;
+}
+
+.form-label {
+    font-weight: 700;
+    font-size: 11px;
+    text-transform: uppercase;
+    letter-spacing: 1.2px;
+    margin-bottom: 10px;
+}
+
+.form-control {
+    border: 1px solid var(--border);
+    border-radius: 0;
+    padding: 14px 18px;
+    font-size: 15px;
+    transition: 0.2s ease;
+}
+
+.form-control:focus {
+    box-shadow: none;
+    background-color: var(--gray);
+    border-color: var(--black);
+}
+
+/* Alert tizimi */
+.custom-alert {
+    background-color: var(--black);
+    color: var(--white);
+    border-radius: 0;
+    border: none;
+    font-size: 13px;
+    padding: 16px;
+    margin-bottom: 25px;
+    display: flex;
+    align-items: center;
+    animation: slideIn 0.4s ease;
+}
+
+.btn-auth {
+    background-color: var(--black);
+    color: var(--white);
+    border: 1px solid var(--black);
+    border-radius: 0;
+    padding: 15px;
+    font-weight: 800;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    width: 100%;
+    transition: 0.3s;
+}
+
+.btn-auth:hover {
+    background-color: var(--white);
+    color: var(--black);
+}
+
+.btn-social {
+    background-color: var(--white);
+    border: 1px solid var(--border);
+    border-radius: 0;
+    padding: 12px;
+    font-size: 14px;
+    font-weight: 600;
+    width: 100%;
+    transition: 0.3s;
+}
+
+.btn-social:hover {
+    background-color: var(--black);
+    color: var(--white);
+}
+
+.auth-divider {
+    text-align: center;
+    margin: 25px 0;
+    position: relative;
+}
+
+.auth-divider::before {
+    content: "";
+    position: absolute;
+    top: 50%;
+    left: 0;
+    right: 0;
+    height: 1px;
+    background: #eee;
+}
+
+.auth-divider span {
+    background: var(--white);
+    padding: 0 15px;
+    position: relative;
+    font-size: 11px;
+    text-transform: uppercase;
+    color: #999;
+}
+
+.auth-link {
+    color: var(--black);
+    font-weight: 700;
+    text-decoration: underline;
+    font-size: 13px;
+}
+
+.input-group-text {
+    background: none;
+    border: 1px solid var(--border);
+    border-left: none;
+    border-radius: 0;
+    cursor: pointer;
+}
+
+@keyframes slideIn {
+    from { opacity: 0; transform: translateY(-15px); }
+    to { opacity: 1; transform: translateY(0); }
+}

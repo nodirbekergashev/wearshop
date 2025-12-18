@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Create Account | Power of Wear</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" th:href="@{/css/auth-styles.css}">
+
+
+</head>
+<body>
+
+<div class="container">
+    <div class="auth-card">
+        <a href="/" class="brand-logo">POWER OF WEAR</a>
+
+        <h2 class="fw-bold mb-1">RO'YXATDAN O'TISH</h2>
+        <p class="text-muted small mb-4">Shaxsiy hisobingizni yarating</p>
+
+<!--        <div th:if="${errorMessage}" class="custom-alert alert-dismissible fade show" role="alert">-->
+<!--            <i class="fas fa-exclamation-circle me-3"></i>-->
+<!--            <span th:text="${errorMessage}">Xatolik matni</span>-->
+<!--            <button type="button" class="btn-close btn-close-white ms-auto" data-bs-dismiss="alert"></button>-->
+<!--        </div>-->
+
+        <form th:action="@{/auth/register}" th:object="${user}" method="post">
+            <div class="row g-3">
+                <div class="col-md-6 mb-3">
+                    <label class="form-label">Ism</label>
+                    <input type="text" th:field="*{firstName}" class="form-control" placeholder="Ali" required>
+                </div>
+                <div class="col-md-6 mb-3">
+                    <label class="form-label">Familiya</label>
+                    <input type="text" th:field="*{lastName}" class="form-control" placeholder="Valiyev">
+                </div>
+            </div>
+
+            <div class="mb-3">
+                <label class="form-label">Telefon raqam</label>
+                <input type="tel" id="phone" th:field="*{phoneNumber}" class="form-control" placeholder="(90) 123-45-67" required>
+            </div>
+
+            <div class="mb-4">
+                <label class="form-label">Parol</label>
+                <div class="input-group">
+                    <input type="password" id="password" th:field="*{password}" class="form-control" placeholder="******" required>
+                    <span class="input-group-text" onclick="toggleVisibility()">
+                        <i id="toggleIcon" class="fas fa-eye"></i>
+                    </span>
+                </div>
+            </div>
+
+            <div class="mb-4">
+                <div class="form-check">
+                    <input class="form-check-input border-dark rounded-0" type="checkbox" id="terms" required>
+                    <label class="form-check-label small" for="terms">
+                        Men <a href="#" class="auth-link">shartlarga</a> roziman
+                    </label>
+                </div>
+            </div>
+            <button type="submit" class="btn btn-auth mb-4">Hisob yaratish</button>
+
+            <div class="text-center">
+                <span class="small">Akkauntingiz bormi?</span>
+                <a th:href="@{/auth/login}" class="auth-link ms-1">Kirish</a>
+            </div>
+        </form>
+    </div>
+</div>
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+<script>
+    // Parol ko'rinishini boshqarish
+    function toggleVisibility() {
+        const pass = document.getElementById('password');
+        const icon = document.getElementById('toggleIcon');
+        if (pass.type === "password") {
+            pass.type = "text";
+            icon.classList.replace('fa-eye', 'fa-eye-slash');
+        } else {
+            pass.type = "password";
+            icon.classList.replace('fa-eye-slash', 'fa-eye');
+        }
+    }
+
+    // Telefon raqamni formatlash
+    document.getElementById('phone').addEventListener('input', function (e) {
+        let x = e.target.value.replace(/\D/g, '').match(/(\d{0,2})(\d{0,3})(\d{0,2})(\d{0,2})/);
+        e.target.value = !x[2] ? x[1] : '(' + x[1] + ') ' + x[2] + (x[3] ? '-' + x[3] : '') + (x[4] ? '-' + x[4] : '');
+    });
+</script>
+
+</body>
+</html>
