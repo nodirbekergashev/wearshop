@@ -20,7 +20,7 @@ public class CategoryController {
 
     private final CategoryService categoryService;
 
-    @ModelAttribute("allCategories")
+    @ModelAttribute("/allCategories")
     public List<CategoryResponseDto> allCategories() {
         return categoryService.getAll();
     }

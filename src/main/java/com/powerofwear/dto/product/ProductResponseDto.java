@@ -12,7 +12,6 @@ import java.util.List;
 @JsonInclude(JsonInclude.Include.NON_NULL)
 @Data
 public class ProductResponseDto {
-
     private Long id;
     private String name;
     private Long categoryId;

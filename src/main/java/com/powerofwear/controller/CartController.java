@@ -1,6 +1,7 @@
 package com.powerofwear.controller;
 
 import lombok.RequiredArgsConstructor;
+import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
 import com.powerofwear.service.CartService;
 
@@ -10,5 +11,10 @@ import com.powerofwear.service.CartService;
 public class CartController {
 
     private final CartService cartService;
+
+//    @GetMapping("/count")
+//    public Integer getCartCount(Model model, ) {
+//        model.addAttribute("cartCount", )
+//    }
 
 }
